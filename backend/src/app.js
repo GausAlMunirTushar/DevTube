@@ -26,7 +26,19 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // import routes
-import userRouter from "./routes/user.routes";
+import userRouter from "./routes/user.routes.js";
+
+app.get("", (_req, res) => {
+    res.status(200).json({
+        message: "Server Health Alright",
+    });
+});
+
+app.get("/health", (_req, res) => {
+    res.status(200).json({
+        message: "Server Health Alright",
+    });
+});
 
 // Routes
 app.use("/api/v1/users", userRouter);
